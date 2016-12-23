@@ -15,19 +15,22 @@ namespace NewKursach
         public Form1()
         {
             InitializeComponent();
+            
         }
-        Random rnd = new Random();
-        List<int> listBox1queue = new List<int>(); // очередь ЦП
-        List<int> listBox2queue = new List<int>(); // очередь Видео Карты
-        List<int> listBox3queue = new List<int>(); // очередь Жесткого Диска
-        List<int> listBox4queue = new List<int>(); // очередь Звуковой Карты
-        
-        List<int> groupBoxCPU = new List<int>(); // инфо о ЦП
-        List<int> groupBoxVC = new List<int>(); // инфо о Видео Карте
-        List<int> groupBoxHDD = new List<int>(); // инфо о Жестком Диске
-        List<int> groupBoxSC = new List<int>(); // инфо о Звуковой Карте
-        List<int> groupBoxST = new List<int>(); // Статистика
-        List<int> groupBoxMm = new List<int>(); // инфо о памяти
+        private Random rnd = new Random();
+        private List<int> listBox1queue = new List<int>(); // очередь ЦП
+        private List<int> listBox2queue = new List<int>(); // очередь Видео Карты
+        private List<int> listBox3queue = new List<int>(); // очередь Жесткого Диска
+        private List<int> listBox4queue = new List<int>(); // очередь Звуковой Карты
+
+        private List<int> groupBoxCPU = new List<int>(); // инфо о ЦП
+        private List<int> groupBoxVC = new List<int>(); // инфо о Видео Карте
+        private List<int> groupBoxHDD = new List<int>(); // инфо о Жестком Диске
+        private List<int> groupBoxSC = new List<int>(); // инфо о Звуковой Карте
+        private List<int> groupBoxST = new List<int>(); // Статистика
+        private List<int> groupBoxMm = new List<int>(); // инфо о памяти
+
+        private Label tickLabel;
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -46,6 +49,17 @@ namespace NewKursach
 
         private void timer1_Tick(object sender, EventArgs e) // таймер------ изменить
         {
+            //processor.tick();
+            legacy();
+            displayCurrentTick();
+        }
+
+        private void displayCurrentTick() {
+            this.label6.Text = "2";
+        }
+
+        private void legacy()
+        {
             int numb = rnd.Next(100);
             listBox1queue.Add(numb);
             listBox1.Items.Add(numb);
@@ -55,42 +69,13 @@ namespace NewKursach
             listBox3.Items.Add(numb);
             listBox4queue.Add(numb);
             listBox4.Items.Add(numb);
-        }
-
-        private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
 
         }
 
         private void button2_Click(object sender, EventArgs e) // кнопка СТАРТ
         {
             this.timer1.Start();
-            button1.Enabled = false;
+            CLEARBTN.Enabled = false;
             button2.Enabled = false;
             button3.Enabled = true;
             button4.Enabled = false;
@@ -99,7 +84,7 @@ namespace NewKursach
         private void button3_Click(object sender, EventArgs e) // кнопка СТОП
         {
             this.timer1.Stop();
-            button1.Enabled = true;
+            CLEARBTN.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = false;
             button4.Enabled = true;
@@ -107,13 +92,13 @@ namespace NewKursach
 
         private void Form1_Load(object sender, EventArgs e) // заглавная форма
         {
-            button1.Enabled = false;
+            CLEARBTN.Enabled = false;
             button2.Enabled = true;
             button3.Enabled = false;
             button4.Enabled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e) // кнопка ОЧИСТИТЬ 
+        private void onClearPressed(object sender, EventArgs e) // кнопка ОЧИСТИТЬ 
         {
             listBox1.Items.Clear();
             listBox2.Items.Clear();
@@ -133,13 +118,18 @@ namespace NewKursach
             groupBoxMm.Clear();
 
             button2.Enabled = button4.Enabled = true;
-            button1.Enabled = button3.Enabled = false;
+            CLEARBTN.Enabled = button3.Enabled = false;
 
         }
 
         private void button4_Click(object sender, EventArgs e) // кнопка ВЫХОД
         {
             Application.Exit();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

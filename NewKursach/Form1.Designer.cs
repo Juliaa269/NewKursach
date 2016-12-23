@@ -46,8 +46,10 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CLEARBTN = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -94,7 +96,6 @@
             this.label4.Size = new System.Drawing.Size(221, 19);
             this.label4.TabIndex = 5;
             this.label4.Text = "Очередь к Звуковой Карте";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // listBox1
             // 
@@ -104,7 +105,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(240, 99);
             this.listBox1.TabIndex = 11;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBox2
             // 
@@ -114,7 +114,6 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(240, 99);
             this.listBox2.TabIndex = 12;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // listBox3
             // 
@@ -124,7 +123,6 @@
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(240, 99);
             this.listBox3.TabIndex = 13;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
             // listBox4
             // 
@@ -134,7 +132,6 @@
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(240, 99);
             this.listBox4.TabIndex = 14;
-            this.listBox4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -195,7 +192,6 @@
             this.groupBox4.TabIndex = 31;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Звуковая Карта";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // groupBox5
             // 
@@ -215,15 +211,15 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Память";
             // 
-            // button1
+            // CLEARBTN
             // 
-            this.button1.Location = new System.Drawing.Point(606, 542);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 57);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "ОЧИСТИТЬ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CLEARBTN.Location = new System.Drawing.Point(606, 542);
+            this.CLEARBTN.Name = "CLEARBTN";
+            this.CLEARBTN.Size = new System.Drawing.Size(109, 57);
+            this.CLEARBTN.TabIndex = 34;
+            this.CLEARBTN.Text = "ОЧИСТИТЬ";
+            this.CLEARBTN.UseVisualStyleBackColor = true;
+            this.CLEARBTN.Click += new System.EventHandler(this.onClearPressed);
             // 
             // button4
             // 
@@ -235,13 +231,33 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(351, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 19);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "current tick";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(461, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 19);
+            this.label6.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 611);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CLEARBTN);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -286,8 +302,10 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CLEARBTN;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
