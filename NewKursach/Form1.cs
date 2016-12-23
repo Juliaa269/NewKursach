@@ -15,7 +15,7 @@ namespace NewKursach
         public Form1()
         {
             InitializeComponent();
-            
+            this.label8.Text = "" + intensivity;
         }
 
         // UI
@@ -34,7 +34,7 @@ namespace NewKursach
 
         // BackGround
         private Processor processor = new Processor();
-
+        private float intensivity = 0.5f;
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -55,11 +55,21 @@ namespace NewKursach
             processor.tick();
             legacy();
             displayCurrentTick();
+            createProcess();
+        }
+        private void createProcess()
+        {
+            double generate = rnd.NextDouble();
+            if (generate <= intensivity)
+            {
+
+            } 
         }
 
         private void displayCurrentTick()
         {
             this.label6.Text = "" + processor.getCurrentTick();
+       
         }
 
         private void legacy()
@@ -138,5 +148,6 @@ namespace NewKursach
         {
 
         }
+        
     }
 }
