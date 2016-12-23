@@ -17,6 +17,8 @@ namespace NewKursach
             InitializeComponent();
             
         }
+
+        // UI
         private Random rnd = new Random();
         private List<int> listBox1queue = new List<int>(); // очередь ЦП
         private List<int> listBox2queue = new List<int>(); // очередь Видео Карты
@@ -30,7 +32,8 @@ namespace NewKursach
         private List<int> groupBoxST = new List<int>(); // Статистика
         private List<int> groupBoxMm = new List<int>(); // инфо о памяти
 
-        private Label tickLabel;
+        // BackGround
+        private Processor processor = new Processor();
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -49,13 +52,14 @@ namespace NewKursach
 
         private void timer1_Tick(object sender, EventArgs e) // таймер------ изменить
         {
-            //processor.tick();
+            processor.tick();
             legacy();
             displayCurrentTick();
         }
 
-        private void displayCurrentTick() {
-            this.label6.Text = "2";
+        private void displayCurrentTick()
+        {
+            this.label6.Text = "" + processor.getCurrentTick();
         }
 
         private void legacy()
@@ -116,6 +120,9 @@ namespace NewKursach
             groupBoxSC.Clear();
             groupBoxST.Clear();
             groupBoxMm.Clear();
+
+            processor.clear();
+            displayCurrentTick();
 
             button2.Enabled = button4.Enabled = true;
             CLEARBTN.Enabled = button3.Enabled = false;
