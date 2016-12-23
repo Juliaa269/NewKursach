@@ -60,10 +60,12 @@ namespace NewKursach
         private void createProcess()
         {
             double generate = rnd.NextDouble();
+            
             if (generate <= intensivity)
             {
-
-            } 
+                string name = "P" + processor.getCurrentTick();
+                Process process = new Process(name, 3, 12, 34, 16);
+            }
         }
 
         private void displayCurrentTick()
