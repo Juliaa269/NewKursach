@@ -13,13 +13,13 @@ namespace NewKursach
         private int createdTime; // время создания
         private int timeProcessed; // время работы
         private int timeWaited; // время ожидания 
-        public Process(string name,int priority, int createdTime, int timeProcessed, int timeWaited)
+        public Process(string name,int priority, int createdTime)
         {
             this.name = name;
             this.priority = priority;
             this.createdTime = createdTime;
-            this.timeProcessed = timeProcessed;
-            this.timeWaited = timeWaited;
+            this.timeProcessed = 0;
+            this.timeWaited = 0;
         } 
     }
     

@@ -64,7 +64,9 @@ namespace NewKursach
             if (generate <= intensivity)
             {
                 string name = "P" + processor.getCurrentTick();
-                Process process = new Process(name, 3, 12, 34, 16);
+                int createdTime = processor.getCurrentTick();
+                int priority = rnd.Next(100);
+                Process process = new Process(name, priority, createdTime);
             }
         }
 
