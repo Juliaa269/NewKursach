@@ -52,6 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Planner.cs" />
     <Compile Include="PriorityProcessQueue.cs" />
     <Compile Include="Queue.cs" />
     <Compile Include="PriorityQueue.cs" />

@@ -9,17 +9,7 @@ namespace NewKursach
     class BinaryHeap<T> 
     {
         private List<int> list;
-        public List<int> list1
-        {
-            get
-            {
-                return list;
-            }
-            set
-            {
-                list = value;
-            }
-        }
+        
         public int heapSize // размер кучи
         {
             get

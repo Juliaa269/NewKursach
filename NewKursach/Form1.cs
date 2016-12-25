@@ -33,7 +33,7 @@ namespace NewKursach
         private List<int> groupBoxMm = new List<int>(); // инфо о памяти
 
         // BackGround
-        private Queue processQueue = new PriorityProcessQueue();
+        private Queue processQueue = new SJFQueue();
         private Processor processor = new Processor();
         private float intensivity = 0.5f;
         private void label3_Click(object sender, EventArgs e)
@@ -66,7 +66,6 @@ namespace NewKursach
             foreach (Process process in processQueue.list())
             {
                 listBox1.Items.Add(process.name);
-
             }
 
         }
