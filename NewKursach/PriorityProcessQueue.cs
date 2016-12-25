@@ -27,7 +27,7 @@ namespace NewKursach
 
         private void sort()
         {
-            //  sort by process.burstTime 
+            // process.burstTime();
         }
 
         public List<Process> list()
@@ -35,6 +35,7 @@ namespace NewKursach
             return processes;
         }
 
+       
         public Process pop()
         {
             if (processes.Count() > 0)

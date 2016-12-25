@@ -10,20 +10,24 @@ namespace NewKursach
     {
         public string name; // имя
         
-        private int priority; // приоритет
+        public int burstTime; // приоритет
         private int createdTime; // время создания
         private int timeProcessed; // время работы
         private int timeWaited; // время ожидания 
-        public Process(string name,int priority, int createdTime)
+
+        public Process(string name,int burstTime, int createdTime)
         {
             this.name = name;
-            this.priority = priority;
+            this.burstTime = burstTime;
             this.createdTime = createdTime;
             this.timeProcessed = 0;
             this.timeWaited = 0;
-        } 
+        }
 
-
+        public override string ToString()
+        {
+            return name + " resourceTime: ";
+        }
     }
     
 }

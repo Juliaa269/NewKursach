@@ -29,8 +29,9 @@ namespace NewKursach
             return true;
         }
 
-        public void execute(Process process) {
+        public void execute(Process process)
+        {
         }
-
+        
     }
 }

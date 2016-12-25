@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// TODO Вывести статистику выполнения процессов
+// TODO Вывести текущий исполняемый процесс
 namespace NewKursach
 {
     public partial class Form1 : Form
@@ -60,8 +62,8 @@ namespace NewKursach
             int numb = rnd.Next(100);
 
             videoCardQueueListBox.Items.Add(numb);
-            listBox3.Items.Add(numb);
-            listBox4.Items.Add(numb);
+            hardDriveDiskQueueListBox.Items.Add(numb);
+            soundCardListBox.Items.Add(numb);
         }
 
         private void STARTBTN_Click(object sender, EventArgs e) // кнопка СТАРТ
@@ -94,8 +96,8 @@ namespace NewKursach
         {
             cpuQueueListBox.Items.Clear();
             videoCardQueueListBox.Items.Clear();
-            listBox3.Items.Clear();
-            listBox4.Items.Clear();
+            hardDriveDiskQueueListBox.Items.Clear();
+            soundCardListBox.Items.Clear();
 
             groupBoxCPU.Clear();
             groupBoxVC.Clear();
@@ -116,5 +118,6 @@ namespace NewKursach
             Application.Exit();
         }
 
+        
     }
 }

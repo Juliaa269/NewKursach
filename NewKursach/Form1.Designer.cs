@@ -35,8 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cpuQueueListBox = new System.Windows.Forms.ListBox();
             this.videoCardQueueListBox = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.hardDriveDiskQueueListBox = new System.Windows.Forms.ListBox();
+            this.soundCardListBox = new System.Windows.Forms.ListBox();
             this.STARTBTN = new System.Windows.Forms.Button();
             this.STOPBTN = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -52,6 +52,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.InensivityBTN = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -98,45 +100,45 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Очередь к Звуковой Карте";
             // 
-            // listBox1
+            // cpuQueueListBox
             // 
             this.cpuQueueListBox.FormattingEnabled = true;
             this.cpuQueueListBox.ItemHeight = 19;
             this.cpuQueueListBox.Location = new System.Drawing.Point(12, 175);
-            this.cpuQueueListBox.Name = "listBox1";
+            this.cpuQueueListBox.Name = "cpuQueueListBox";
             this.cpuQueueListBox.Size = new System.Drawing.Size(240, 99);
             this.cpuQueueListBox.TabIndex = 11;
             // 
-            // listBox2
+            // videoCardQueueListBox
             // 
             this.videoCardQueueListBox.FormattingEnabled = true;
             this.videoCardQueueListBox.ItemHeight = 19;
             this.videoCardQueueListBox.Location = new System.Drawing.Point(12, 319);
-            this.videoCardQueueListBox.Name = "listBox2";
+            this.videoCardQueueListBox.Name = "videoCardQueueListBox";
             this.videoCardQueueListBox.Size = new System.Drawing.Size(240, 99);
             this.videoCardQueueListBox.TabIndex = 12;
             // 
-            // listBox3
+            // hardDriveDiskQueueListBox
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 19;
-            this.listBox3.Location = new System.Drawing.Point(12, 465);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(240, 99);
-            this.listBox3.TabIndex = 13;
+            this.hardDriveDiskQueueListBox.FormattingEnabled = true;
+            this.hardDriveDiskQueueListBox.ItemHeight = 19;
+            this.hardDriveDiskQueueListBox.Location = new System.Drawing.Point(12, 465);
+            this.hardDriveDiskQueueListBox.Name = "hardDriveDiskQueueListBox";
+            this.hardDriveDiskQueueListBox.Size = new System.Drawing.Size(240, 99);
+            this.hardDriveDiskQueueListBox.TabIndex = 13;
             // 
-            // listBox4
+            // soundCardListBox
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 19;
-            this.listBox4.Location = new System.Drawing.Point(12, 607);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(240, 99);
-            this.listBox4.TabIndex = 14;
+            this.soundCardListBox.FormattingEnabled = true;
+            this.soundCardListBox.ItemHeight = 19;
+            this.soundCardListBox.Location = new System.Drawing.Point(12, 607);
+            this.soundCardListBox.Name = "soundCardListBox";
+            this.soundCardListBox.Size = new System.Drawing.Size(240, 99);
+            this.soundCardListBox.TabIndex = 14;
             // 
             // STARTBTN
             // 
-            this.STARTBTN.Location = new System.Drawing.Point(737, 662);
+            this.STARTBTN.Location = new System.Drawing.Point(816, 662);
             this.STARTBTN.Name = "STARTBTN";
             this.STARTBTN.Size = new System.Drawing.Size(115, 57);
             this.STARTBTN.TabIndex = 21;
@@ -146,7 +148,7 @@
             // 
             // STOPBTN
             // 
-            this.STOPBTN.Location = new System.Drawing.Point(858, 662);
+            this.STOPBTN.Location = new System.Drawing.Point(937, 662);
             this.STOPBTN.Name = "STOPBTN";
             this.STOPBTN.Size = new System.Drawing.Size(98, 57);
             this.STOPBTN.TabIndex = 22;
@@ -160,61 +162,62 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(351, 206);
+            this.groupBox1.Location = new System.Drawing.Point(351, 297);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Size = new System.Drawing.Size(200, 121);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Видео Карта";
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(351, 72);
+            this.groupBox2.Location = new System.Drawing.Point(351, 153);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.Size = new System.Drawing.Size(200, 121);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Центральный процессор";
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(351, 355);
+            this.groupBox3.Location = new System.Drawing.Point(355, 436);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.Size = new System.Drawing.Size(200, 128);
             this.groupBox3.TabIndex = 30;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Жесткий диск";
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(351, 499);
+            this.groupBox4.Location = new System.Drawing.Point(355, 580);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 100);
+            this.groupBox4.Size = new System.Drawing.Size(200, 126);
             this.groupBox4.TabIndex = 31;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Звуковая Карта";
             // 
             // groupBox5
             // 
-            this.groupBox5.Location = new System.Drawing.Point(654, 72);
+            this.groupBox5.Location = new System.Drawing.Point(669, 153);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(286, 297);
             this.groupBox5.TabIndex = 32;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Статистика";
+            
             // 
             // groupBox6
             // 
-            this.groupBox6.Location = new System.Drawing.Point(654, 408);
+            this.groupBox6.Location = new System.Drawing.Point(669, 499);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 100);
+            this.groupBox6.Size = new System.Drawing.Size(200, 111);
             this.groupBox6.TabIndex = 33;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Память";
             // 
             // CLEARBTN
             // 
-            this.CLEARBTN.Location = new System.Drawing.Point(620, 662);
+            this.CLEARBTN.Location = new System.Drawing.Point(701, 662);
             this.CLEARBTN.Name = "CLEARBTN";
             this.CLEARBTN.Size = new System.Drawing.Size(109, 57);
             this.CLEARBTN.TabIndex = 34;
@@ -235,7 +238,7 @@
             // current_tick
             // 
             this.current_tick.AutoSize = true;
-            this.current_tick.Location = new System.Drawing.Point(351, 13);
+            this.current_tick.Location = new System.Drawing.Point(616, 86);
             this.current_tick.Name = "current_tick";
             this.current_tick.Size = new System.Drawing.Size(108, 19);
             this.current_tick.TabIndex = 36;
@@ -244,7 +247,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(461, 13);
+            this.label6.Location = new System.Drawing.Point(783, 86);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 19);
             this.label6.TabIndex = 37;
@@ -266,11 +269,31 @@
             this.label8.Size = new System.Drawing.Size(0, 19);
             this.label8.TabIndex = 39;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(31, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(475, 19);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Алгоритм планирования процессов - SJF без вытеснений";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 91);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(423, 19);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Способ организации очереди - Бинарная пирамида";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 731);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.InensivityBTN);
             this.Controls.Add(this.label6);
@@ -285,8 +308,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.STOPBTN);
             this.Controls.Add(this.STARTBTN);
-            this.Controls.Add(this.listBox4);
-            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.soundCardListBox);
+            this.Controls.Add(this.hardDriveDiskQueueListBox);
             this.Controls.Add(this.videoCardQueueListBox);
             this.Controls.Add(this.cpuQueueListBox);
             this.Controls.Add(this.label4);
@@ -310,8 +333,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox cpuQueueListBox;
         private System.Windows.Forms.ListBox videoCardQueueListBox;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.ListBox hardDriveDiskQueueListBox;
+        private System.Windows.Forms.ListBox soundCardListBox;
         private System.Windows.Forms.Button STARTBTN;
         private System.Windows.Forms.Button STOPBTN;
         private System.Windows.Forms.Timer timer1;
@@ -327,6 +350,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label InensivityBTN;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
     }
 }
 

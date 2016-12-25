@@ -14,25 +14,29 @@ namespace NewKursach
         private Processor processor = new Processor();
         public const float intensivity = 0.5f;
 
+        private Queue stat = new SJFQueue();
+
         private Random rnd = new Random();
 
         public Planner()
         {
-            Process p0 = new Process("P000", 0, 0);
-            Process p1 = new Process("P001", 0, 0);
-            Process p2 = new Process("P002", 0, 0);
-            Process p3 = new Process("P003", 0, 0);
+            Process p0 = new Process("P000", 5, 0);
+            Process p1 = new Process("P001", 3, 0);
+            Process p2 = new Process("P002", 7, 0);
+            Process p3 = new Process("P003", 1, 0);
             processQueue.push(p0);
             processQueue.push(p1);
             processQueue.push(p2);
             processQueue.push(p3);
         }
 
-        public List<Process> cpuQueue() {
+        public List<Process> cpuQueue() // очередь к ЦП
+        {
             return processQueue.list();
         }
 
-        public void tick() {
+        public void tick() // ?
+        {
             if (processor.isFree())
             {
                 processor.execute(getLowestBurstTimeProcess());
@@ -41,15 +45,18 @@ namespace NewKursach
             // createProcess();
         }
 
-        private Process getLowestBurstTimeProcess() {
+        private Process getLowestBurstTimeProcess() // получаем наименьшее интервал обслуживания
+        {
             return processQueue.pop();
         }
 
-        public int getCurrentTick() {
+        public int getCurrentTick() // получаем текущий такт
+        {
             return processor.getCurrentTick();
         }
 
-        public void clear() {
+        public void clear() // очищаем
+        {
             processor.clear();
         }
 
@@ -67,6 +74,9 @@ namespace NewKursach
             }
         }
 
-
+        public Process statistic()
+        {
+            return stat.pop();
+        }
     }
 }
