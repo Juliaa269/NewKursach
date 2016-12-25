@@ -37,8 +37,8 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.STARTBTN = new System.Windows.Forms.Button();
+            this.STOPBTN = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -47,10 +47,10 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CLEARBTN = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.EXITBTN = new System.Windows.Forms.Button();
+            this.current_tick = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.InensivityBTN = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(-2, 50);
+            this.label1.Location = new System.Drawing.Point(8, 153);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(314, 19);
@@ -69,7 +69,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(23, 184);
+            this.label2.Location = new System.Drawing.Point(14, 297);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 19);
@@ -80,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(14, 333);
+            this.label3.Location = new System.Drawing.Point(14, 436);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(223, 19);
@@ -92,7 +92,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(14, 477);
+            this.label4.Location = new System.Drawing.Point(14, 580);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(221, 19);
@@ -103,16 +103,17 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(12, 72);
+            this.listBox1.Location = new System.Drawing.Point(12, 175);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(240, 99);
             this.listBox1.TabIndex = 11;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 19;
-            this.listBox2.Location = new System.Drawing.Point(12, 206);
+            this.listBox2.Location = new System.Drawing.Point(12, 319);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(240, 99);
             this.listBox2.TabIndex = 12;
@@ -121,7 +122,7 @@
             // 
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 19;
-            this.listBox3.Location = new System.Drawing.Point(12, 355);
+            this.listBox3.Location = new System.Drawing.Point(12, 465);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(240, 99);
             this.listBox3.TabIndex = 13;
@@ -130,30 +131,30 @@
             // 
             this.listBox4.FormattingEnabled = true;
             this.listBox4.ItemHeight = 19;
-            this.listBox4.Location = new System.Drawing.Point(12, 499);
+            this.listBox4.Location = new System.Drawing.Point(12, 607);
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(240, 99);
             this.listBox4.TabIndex = 14;
             // 
-            // button2
+            // STARTBTN
             // 
-            this.button2.Location = new System.Drawing.Point(721, 542);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 57);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "СТАРТ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.STARTBTN.Location = new System.Drawing.Point(737, 662);
+            this.STARTBTN.Name = "STARTBTN";
+            this.STARTBTN.Size = new System.Drawing.Size(115, 57);
+            this.STARTBTN.TabIndex = 21;
+            this.STARTBTN.Text = "СТАРТ";
+            this.STARTBTN.UseVisualStyleBackColor = true;
+            this.STARTBTN.Click += new System.EventHandler(this.STARTBTN_Click);
             // 
-            // button3
+            // STOPBTN
             // 
-            this.button3.Location = new System.Drawing.Point(842, 541);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 57);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "СТОП";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.STOPBTN.Location = new System.Drawing.Point(858, 662);
+            this.STOPBTN.Name = "STOPBTN";
+            this.STOPBTN.Size = new System.Drawing.Size(98, 57);
+            this.STOPBTN.TabIndex = 22;
+            this.STOPBTN.Text = "СТОП";
+            this.STOPBTN.UseVisualStyleBackColor = true;
+            this.STOPBTN.Click += new System.EventHandler(this.STOPBTN_Click);
             // 
             // timer1
             // 
@@ -215,7 +216,7 @@
             // 
             // CLEARBTN
             // 
-            this.CLEARBTN.Location = new System.Drawing.Point(606, 542);
+            this.CLEARBTN.Location = new System.Drawing.Point(620, 662);
             this.CLEARBTN.Name = "CLEARBTN";
             this.CLEARBTN.Size = new System.Drawing.Size(109, 57);
             this.CLEARBTN.TabIndex = 34;
@@ -223,25 +224,25 @@
             this.CLEARBTN.UseVisualStyleBackColor = true;
             this.CLEARBTN.Click += new System.EventHandler(this.onClearPressed);
             // 
-            // button4
+            // EXITBTN
             // 
-            this.button4.Location = new System.Drawing.Point(880, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(118, 55);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "ВЫХОД";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.EXITBTN.Location = new System.Drawing.Point(880, 2);
+            this.EXITBTN.Name = "EXITBTN";
+            this.EXITBTN.Size = new System.Drawing.Size(118, 55);
+            this.EXITBTN.TabIndex = 35;
+            this.EXITBTN.Text = "ВЫХОД";
+            this.EXITBTN.UseVisualStyleBackColor = true;
+            this.EXITBTN.Click += new System.EventHandler(this.EXITBTN_Click);
             // 
-            // label5
+            // current_tick
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(351, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 19);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "current tick";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.current_tick.AutoSize = true;
+            this.current_tick.Location = new System.Drawing.Point(351, 13);
+            this.current_tick.Name = "current_tick";
+            this.current_tick.Size = new System.Drawing.Size(108, 19);
+            this.current_tick.TabIndex = 36;
+            this.current_tick.Text = "Текущий тик";
+            this.current_tick.Click += new System.EventHandler(this.current_tick_Click);
             // 
             // label6
             // 
@@ -251,14 +252,15 @@
             this.label6.Size = new System.Drawing.Size(0, 19);
             this.label6.TabIndex = 37;
             // 
-            // label7
+            // InensivityBTN
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(606, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 19);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "Интенсивность";
+            this.InensivityBTN.AutoSize = true;
+            this.InensivityBTN.Location = new System.Drawing.Point(616, 20);
+            this.InensivityBTN.Name = "InensivityBTN";
+            this.InensivityBTN.Size = new System.Drawing.Size(134, 19);
+            this.InensivityBTN.TabIndex = 38;
+            this.InensivityBTN.Text = "Интенсивность";
+            this.InensivityBTN.Click += new System.EventHandler(this.InensivityBTN_Click);
             // 
             // label8
             // 
@@ -272,12 +274,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 611);
+            this.ClientSize = new System.Drawing.Size(1047, 731);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.InensivityBTN);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.current_tick);
+            this.Controls.Add(this.EXITBTN);
             this.Controls.Add(this.CLEARBTN);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -285,8 +287,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.STOPBTN);
+            this.Controls.Add(this.STARTBTN);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.listBox3);
             this.Controls.Add(this.listBox2);
@@ -314,8 +316,8 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button STARTBTN;
+        private System.Windows.Forms.Button STOPBTN;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -324,10 +326,10 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button CLEARBTN;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button EXITBTN;
+        private System.Windows.Forms.Label current_tick;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label InensivityBTN;
         private System.Windows.Forms.Label label8;
     }
 }

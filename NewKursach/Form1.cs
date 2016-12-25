@@ -33,6 +33,7 @@ namespace NewKursach
         private List<int> groupBoxMm = new List<int>(); // инфо о памяти
 
         // BackGround
+        private Queue processQueue = new PriorityProcessQueue();
         private Processor processor = new Processor();
         private float intensivity = 0.5f;
         private void label3_Click(object sender, EventArgs e)
@@ -56,8 +57,15 @@ namespace NewKursach
             legacy();
             displayCurrentTick();
             createProcess();
+            displayCPUQueue();
         }
-        private void createProcess()
+
+        private void displayCPUQueue() {
+            int numb = rnd.Next(100);
+            listBox1.Items.Add(numb);
+        }
+
+        private void createProcess() // создание процесса (если он меньше интенсивности)
         {
             double generate = rnd.NextDouble();
             
@@ -66,7 +74,8 @@ namespace NewKursach
                 string name = "P" + processor.getCurrentTick();
                 int createdTime = processor.getCurrentTick();
                 int priority = rnd.Next(100);
-                Process process = new Process(name, priority, createdTime);
+                Process regularProcess = new Process(name, priority, createdTime);
+                processQueue.push(regularProcess);
             }
         }
 
@@ -79,41 +88,37 @@ namespace NewKursach
         private void legacy()
         {
             int numb = rnd.Next(100);
-            listBox1queue.Add(numb);
-            listBox1.Items.Add(numb);
-            listBox2queue.Add(numb);
+
             listBox2.Items.Add(numb);
-            listBox3queue.Add(numb);
             listBox3.Items.Add(numb);
-            listBox4queue.Add(numb);
             listBox4.Items.Add(numb);
 
         }
 
-        private void button2_Click(object sender, EventArgs e) // кнопка СТАРТ
+        private void STARTBTN_Click(object sender, EventArgs e) // кнопка СТАРТ
         {
             this.timer1.Start();
             CLEARBTN.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = true;
-            button4.Enabled = false;
+            STARTBTN.Enabled = false;
+            STOPBTN.Enabled = true;
+            EXITBTN.Enabled = false;
         }
 
-        private void button3_Click(object sender, EventArgs e) // кнопка СТОП
+        private void STOPBTN_Click(object sender, EventArgs e) // кнопка СТОП
         {
             this.timer1.Stop();
             CLEARBTN.Enabled = true;
-            button2.Enabled = true;
-            button3.Enabled = false;
-            button4.Enabled = true;
+            STARTBTN.Enabled = true;
+            STOPBTN.Enabled = false;
+            EXITBTN.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e) // заглавная форма
         {
             CLEARBTN.Enabled = false;
-            button2.Enabled = true;
-            button3.Enabled = false;
-            button4.Enabled = true;
+            STARTBTN.Enabled = true;
+            STOPBTN.Enabled = false;
+            EXITBTN.Enabled = true;
         }
 
         private void onClearPressed(object sender, EventArgs e) // кнопка ОЧИСТИТЬ 
@@ -138,20 +143,29 @@ namespace NewKursach
             processor.clear();
             displayCurrentTick();
 
-            button2.Enabled = button4.Enabled = true;
-            CLEARBTN.Enabled = button3.Enabled = false;
+            STARTBTN.Enabled = EXITBTN.Enabled = true;
+            CLEARBTN.Enabled = STOPBTN.Enabled = false;
 
         }
 
-        private void button4_Click(object sender, EventArgs e) // кнопка ВЫХОД
+        private void EXITBTN_Click(object sender, EventArgs e) // кнопка ВЫХОД
         {
             Application.Exit();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void current_tick_Click(object sender, EventArgs e)
         {
 
         }
-        
+
+        private void InensivityBTN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

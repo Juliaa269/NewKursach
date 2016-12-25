@@ -98,6 +98,7 @@ namespace NewKursach
             list.RemoveAt(index);
         }
 
+        
 
         public int First() // первый в очереди
         {

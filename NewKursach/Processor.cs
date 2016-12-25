@@ -14,7 +14,7 @@ namespace NewKursach
         {
             currentTick++;
         }
-        public int getCurrentTick()
+        public int getCurrentTick()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
         {
             return currentTick;
         }
