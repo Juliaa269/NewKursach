@@ -15,7 +15,8 @@ namespace NewKursach
         public Form1()
         {
             InitializeComponent();
-            this.label8.Text = "" + intensivity;
+            this.planner = new Planner();
+            this.label8.Text = "" + Planner.intensivity;
         }
 
         // UI
@@ -32,10 +33,8 @@ namespace NewKursach
         private List<int> groupBoxST = new List<int>(); // Статистика
         private List<int> groupBoxMm = new List<int>(); // инфо о памяти
 
-        // BackGround
-        private Queue processQueue = new SJFQueue();
-        private Processor processor = new Processor();
-        private float intensivity = 0.5f;
+        private Planner planner;
+
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -53,40 +52,25 @@ namespace NewKursach
 
         private void timer1_Tick(object sender, EventArgs e) // таймер------ изменить
         {
-            processor.tick();
+            planner.tick();
             legacy();
             displayCurrentTick();
-            createProcess();
             displayCPUQueue();
         }
 
         private void displayCPUQueue()
         {
             listBox1.Items.Clear();
-            foreach (Process process in processQueue.list())
+            foreach (Process process in planner.cpuQueue())
             {
                 listBox1.Items.Add(process.name);
             }
 
         }
-
-        private void createProcess() // создание процесса (если он меньше интенсивности)
-        {
-            double generate = rnd.NextDouble();
-
-            if (generate <= intensivity)
-            {
-                string name = "P" + processor.getCurrentTick();
-                int createdTime = processor.getCurrentTick();
-                int priority = rnd.Next(100);
-                Process regularProcess = new Process(name, priority, createdTime);
-                processQueue.push(regularProcess);
-            }
-        }
-
+      
         private void displayCurrentTick()
         {
-            this.label6.Text = "" + processor.getCurrentTick();
+            this.label6.Text = "" + planner.getCurrentTick();
 
         }
 
@@ -145,7 +129,7 @@ namespace NewKursach
             groupBoxST.Clear();
             groupBoxMm.Clear();
 
-            processor.clear();
+            planner.clear();
             displayCurrentTick();
 
             STARTBTN.Enabled = EXITBTN.Enabled = true;
