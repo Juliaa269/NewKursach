@@ -60,15 +60,21 @@ namespace NewKursach
             displayCPUQueue();
         }
 
-        private void displayCPUQueue() {
-            int numb = rnd.Next(100);
-            listBox1.Items.Add(numb);
+        private void displayCPUQueue()
+        {
+            listBox1.Items.Clear();
+            foreach (Process process in processQueue.list())
+            {
+                listBox1.Items.Add(process.name);
+
+            }
+
         }
 
         private void createProcess() // создание процесса (если он меньше интенсивности)
         {
             double generate = rnd.NextDouble();
-            
+
             if (generate <= intensivity)
             {
                 string name = "P" + processor.getCurrentTick();
@@ -82,7 +88,7 @@ namespace NewKursach
         private void displayCurrentTick()
         {
             this.label6.Text = "" + processor.getCurrentTick();
-       
+
         }
 
         private void legacy()

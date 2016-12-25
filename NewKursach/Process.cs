@@ -8,7 +8,8 @@ namespace NewKursach
 {
     class Process
     {
-        private string name; // имя
+        public string name; // имя
+        
         private int priority; // приоритет
         private int createdTime; // время создания
         private int timeProcessed; // время работы
@@ -21,6 +22,8 @@ namespace NewKursach
             this.timeProcessed = 0;
             this.timeWaited = 0;
         } 
+
+
     }
     
 }

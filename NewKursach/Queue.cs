@@ -9,5 +9,6 @@ namespace NewKursach
     interface Queue // интерфейс очереди
     {
         void push(Process process); // declaration
+        List<Process> list();
     }
 }
