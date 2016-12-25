@@ -21,10 +21,6 @@ namespace NewKursach
 
         // UI
         private Random rnd = new Random();
-        private List<int> listBox1queue = new List<int>(); // очередь ЦП
-        private List<int> listBox2queue = new List<int>(); // очередь Видео Карты
-        private List<int> listBox3queue = new List<int>(); // очередь Жесткого Диска
-        private List<int> listBox4queue = new List<int>(); // очередь Звуковой Карты
 
         private List<int> groupBoxCPU = new List<int>(); // инфо о ЦП
         private List<int> groupBoxVC = new List<int>(); // инфо о Видео Карте
@@ -102,10 +98,7 @@ namespace NewKursach
             listBox3.Items.Clear();
             listBox4.Items.Clear();
 
-            listBox1queue.Clear();
-            listBox2queue.Clear();
-            listBox3queue.Clear();
-            listBox4queue.Clear();
+          
 
             groupBoxCPU.Clear();
             groupBoxVC.Clear();
