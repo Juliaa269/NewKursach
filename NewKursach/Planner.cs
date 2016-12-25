@@ -16,13 +16,33 @@ namespace NewKursach
 
         private Random rnd = new Random();
 
+        public Planner()
+        {
+            Process p0 = new Process("P000", 0, 0);
+            Process p1 = new Process("P001", 0, 0);
+            Process p2 = new Process("P002", 0, 0);
+            Process p3 = new Process("P003", 0, 0);
+            processQueue.push(p0);
+            processQueue.push(p1);
+            processQueue.push(p2);
+            processQueue.push(p3);
+        }
+
         public List<Process> cpuQueue() {
             return processQueue.list();
         }
 
         public void tick() {
+            if (processor.isFree())
+            {
+                processor.execute(getLowestBurstTimeProcess());
+            }
             processor.tick();
-            createProcess();
+            // createProcess();
+        }
+
+        private Process getLowestBurstTimeProcess() {
+            return processQueue.pop();
         }
 
         public int getCurrentTick() {

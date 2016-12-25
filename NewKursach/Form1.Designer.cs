@@ -33,8 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.cpuQueueListBox = new System.Windows.Forms.ListBox();
+            this.videoCardQueueListBox = new System.Windows.Forms.ListBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.STARTBTN = new System.Windows.Forms.Button();
@@ -100,21 +100,21 @@
             // 
             // listBox1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(12, 175);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(240, 99);
-            this.listBox1.TabIndex = 11;
+            this.cpuQueueListBox.FormattingEnabled = true;
+            this.cpuQueueListBox.ItemHeight = 19;
+            this.cpuQueueListBox.Location = new System.Drawing.Point(12, 175);
+            this.cpuQueueListBox.Name = "listBox1";
+            this.cpuQueueListBox.Size = new System.Drawing.Size(240, 99);
+            this.cpuQueueListBox.TabIndex = 11;
             // 
             // listBox2
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 19;
-            this.listBox2.Location = new System.Drawing.Point(12, 319);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(240, 99);
-            this.listBox2.TabIndex = 12;
+            this.videoCardQueueListBox.FormattingEnabled = true;
+            this.videoCardQueueListBox.ItemHeight = 19;
+            this.videoCardQueueListBox.Location = new System.Drawing.Point(12, 319);
+            this.videoCardQueueListBox.Name = "listBox2";
+            this.videoCardQueueListBox.Size = new System.Drawing.Size(240, 99);
+            this.videoCardQueueListBox.TabIndex = 12;
             // 
             // listBox3
             // 
@@ -287,8 +287,8 @@
             this.Controls.Add(this.STARTBTN);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.videoCardQueueListBox);
+            this.Controls.Add(this.cpuQueueListBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -308,8 +308,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox cpuQueueListBox;
+        private System.Windows.Forms.ListBox videoCardQueueListBox;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.Button STARTBTN;

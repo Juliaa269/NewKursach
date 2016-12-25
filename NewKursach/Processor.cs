@@ -14,7 +14,7 @@ namespace NewKursach
         {
             currentTick++;
         }
-        public int getCurrentTick()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+        public int getCurrentTick()
         {
             return currentTick;
         }
@@ -22,6 +22,15 @@ namespace NewKursach
         {
             currentTick = 0;
         }
-        
+
+        public bool isFree()
+        {
+
+            return true;
+        }
+
+        public void execute(Process process) {
+        }
+
     }
 }

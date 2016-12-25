@@ -41,10 +41,10 @@ namespace NewKursach
 
         private void displayCPUQueue()
         {
-            listBox1.Items.Clear();
+            cpuQueueListBox.Items.Clear();
             foreach (Process process in planner.cpuQueue())
             {
-                listBox1.Items.Add(process.name);
+                cpuQueueListBox.Items.Add(process.name);
             }
 
         }
@@ -59,10 +59,9 @@ namespace NewKursach
         {
             int numb = rnd.Next(100);
 
-            listBox2.Items.Add(numb);
+            videoCardQueueListBox.Items.Add(numb);
             listBox3.Items.Add(numb);
             listBox4.Items.Add(numb);
-
         }
 
         private void STARTBTN_Click(object sender, EventArgs e) // кнопка СТАРТ
@@ -93,12 +92,10 @@ namespace NewKursach
 
         private void onClearPressed(object sender, EventArgs e) // кнопка ОЧИСТИТЬ 
         {
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
+            cpuQueueListBox.Items.Clear();
+            videoCardQueueListBox.Items.Clear();
             listBox3.Items.Clear();
             listBox4.Items.Clear();
-
-          
 
             groupBoxCPU.Clear();
             groupBoxVC.Clear();
@@ -112,7 +109,6 @@ namespace NewKursach
 
             STARTBTN.Enabled = EXITBTN.Enabled = true;
             CLEARBTN.Enabled = STOPBTN.Enabled = false;
-
         }
 
         private void EXITBTN_Click(object sender, EventArgs e) // кнопка ВЫХОД

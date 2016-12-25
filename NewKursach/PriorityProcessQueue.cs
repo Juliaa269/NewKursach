@@ -19,17 +19,33 @@ namespace NewKursach
     {
         List<Process> processes = new List<Process>();
 
-        public void push(Process process) { // definition
+        public void push(Process process)
+        { // definition
             processes.Add(process);
             sort();
         }
 
-        private void sort() {
-            // processes.Reverse();
+        private void sort()
+        {
+            //  sort by process.burstTime 
         }
 
-        public List<Process> list() {
+        public List<Process> list()
+        {
             return processes;
+        }
+
+        public Process pop()
+        {
+            if (processes.Count() > 0)
+            {
+                Process process = processes[0];
+                processes.Remove(process);
+                return process;
+
+            }
+
+            return null;
         }
     }
 }
