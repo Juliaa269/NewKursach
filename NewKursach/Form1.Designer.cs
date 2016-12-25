@@ -86,7 +86,6 @@
             this.label3.Size = new System.Drawing.Size(223, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Очередь к Жесткому Диску";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -107,7 +106,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(240, 99);
             this.listBox1.TabIndex = 11;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBox2
             // 
@@ -242,7 +240,6 @@
             this.current_tick.Size = new System.Drawing.Size(108, 19);
             this.current_tick.TabIndex = 36;
             this.current_tick.Text = "Текущий тик";
-            this.current_tick.Click += new System.EventHandler(this.current_tick_Click);
             // 
             // label6
             // 
@@ -260,7 +257,6 @@
             this.InensivityBTN.Size = new System.Drawing.Size(134, 19);
             this.InensivityBTN.TabIndex = 38;
             this.InensivityBTN.Text = "Интенсивность";
-            this.InensivityBTN.Click += new System.EventHandler(this.InensivityBTN_Click);
             // 
             // label8
             // 

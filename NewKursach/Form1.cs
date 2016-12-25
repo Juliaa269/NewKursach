@@ -35,21 +35,6 @@ namespace NewKursach
 
         private Planner planner;
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e) // таймер------ изменить
         {
             planner.tick();
@@ -142,19 +127,5 @@ namespace NewKursach
             Application.Exit();
         }
 
-        private void current_tick_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InensivityBTN_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
