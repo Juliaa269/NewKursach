@@ -19,7 +19,7 @@ namespace NewKursach
         {
             InitializeComponent();
             this.planner = new Planner();
-            this.label8.Text = "" + Planner.intensivity;
+            this.label8.Text = "" + Planner.intensivity; // задаем интенсивность
             //this.listBox1.Text = planner.statistic;
         }
 
@@ -58,7 +58,7 @@ namespace NewKursach
             listBox5.Items.Clear();
             foreach (Process process in planner.staticusss())
             {
-                listBox5.Items.Add(process.name + " Burst Time:" + process.burstTime);
+                listBox5.Items.Add(process.name + " Burst Time:" + process.burstTime + "[" + process.resource + "]");
             }
         }
 
@@ -80,10 +80,23 @@ namespace NewKursach
         private void legacy()
         {
             int numb = rnd.Next(100);
-
-            videoCardQueueListBox.Items.Add(numb);
-            hardDriveDiskQueueListBox.Items.Add(numb);
-            soundCardListBox.Items.Add(numb);
+            videoCardQueueListBox.Items.Clear();
+            foreach (Process process in planner.videoCardWaitingQueue()) {
+                videoCardQueueListBox.Items.Add(process.name);
+            }
+            hardDriveDiskQueueListBox.Items.Clear();
+            foreach (Process process in planner.hddWaitingQueue())
+            {
+                hardDriveDiskQueueListBox.Items.Add(process.name);
+            }
+            soundCardListBox.Items.Clear();
+            foreach (Process process in planner.soundCardWaitingQueue())
+            {
+                soundCardListBox.Items.Add(process.name);
+            }
+            // videoCardQueueListBox.Items.Add(planner.getVideoCardQueue());
+            //hardDriveDiskQueueListBox.Items.Add(numb);
+            //soundCardListBox.Items.Add(numb);
         }
 
         private void STARTBTN_Click(object sender, EventArgs e) // кнопка СТАРТ
@@ -137,7 +150,5 @@ namespace NewKursach
         {
             Application.Exit();
         }
-
-        
     }
 }

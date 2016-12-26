@@ -9,26 +9,24 @@ namespace NewKursach
     class Planner
     {
         // BackGround
-        
+
         private Queue processQueue = new BinaryHeap();
         private Processor processor = new Processor();
         public const float intensivity = 0.5f;
 
-        private Queue stat = new SJFQueue();
+        private LinkedList<Process> videoCardResourceQueue = new LinkedList<Process>();
+        private LinkedList<Process> soundCardResourceQueue = new LinkedList<Process>();
+        private LinkedList<Process> hddResourceQueue = new LinkedList<Process>();
 
+        private Queue stat = new SJFQueue();
 
         private Random rnd = new Random();
 
         public Planner()
         {
-           /* Process p0 = new Process("P000", 5 * 15, 0);
-            Process p1 = new Process("P001", 5 * 9, 0);
-            Process p2 = new Process("P002", 5 * 21, 0);
-            Process p3 = new Process("P003", 5*3, 0);
-            processQueue.push(p0);
-            processQueue.push(p1);
-            processQueue.push(p2);
-            processQueue.push(p3);*/
+            videoCardResourceQueue.AddFirst(generateProcess());
+            soundCardResourceQueue.AddFirst(generateProcess());
+            hddResourceQueue.AddFirst(generateProcess());
         }
 
         public List<Process> cpuQueue() // очередь к ЦП
@@ -56,14 +54,24 @@ namespace NewKursach
         // [4]isFree = true
         public void tick() // тик
         {
-            createProcess();
+            updateProcessQueue();
+
             if (processor.isFree() && !processQueue.isEmpty())
-            { 
+            {
                 Process currentProcess = getLowestBurstTimeProcess();
                 processor.execute(currentProcess);
             }
             processor.tick();
-           
+        }
+
+        private void updateProcessQueue() {
+            double generate = rnd.NextDouble();
+
+            if (generate <= intensivity)
+            {
+                Process generatredProcess = generateProcess();
+                processQueue.push(generatredProcess);
+            }
         }
 
         private Process getLowestBurstTimeProcess() // получаем наименьшее интервал обслуживания
@@ -81,24 +89,49 @@ namespace NewKursach
             processor.clear();
         }
 
-        private void createProcess() // создание процесса (если он меньше интенсивности)
+        private Process generateProcess() // создание процесса (если он меньше интенсивности)
         {
-            double generate = rnd.NextDouble();
+            string name = "P" + processor.getCurrentTick();
+            int createdTime = processor.getCurrentTick();
+            int burstTime = rnd.Next(20);
+            return new Process(name, burstTime, createdTime, randResource());
+        }
 
-            if (generate <= intensivity)
+        private Resource randResource()
+        {
+            int rand = rnd.Next(10);
+            Resource generatedResource;
+
+            switch (rand)
             {
-                string name = "P" + processor.getCurrentTick();
-                int createdTime = processor.getCurrentTick();
-                int burstTime = rnd.Next(20);
-                Process regularProcess = new Process(name, burstTime, createdTime);
-                processQueue.push(regularProcess);
+                case 0: generatedResource = Resource.VIDEO_CARD; break;
+                case 1: generatedResource = Resource.SOUND_CARD; break;
+                case 2: generatedResource = Resource.HDD; break;
+
+                default: generatedResource = Resource.NONE; break;
             }
+
+            return generatedResource;
         }
 
         public List<Process> currentCPU() // текущий ЦП
         {
             return stat.list();
         }
-        
+
+        public LinkedList<Process> videoCardWaitingQueue() {
+            return videoCardResourceQueue;
+        }
+
+        public LinkedList<Process> hddWaitingQueue()
+        {
+            return hddResourceQueue;
+        }
+
+        public LinkedList<Process> soundCardWaitingQueue()
+        {
+            return soundCardResourceQueue;
+        }
+
     }
 }
