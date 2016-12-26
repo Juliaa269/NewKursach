@@ -25,6 +25,7 @@ namespace NewKursach
             sort();
         }
 
+        // 
         private void sort()
         {
             // process.burstTime();
@@ -47,6 +48,10 @@ namespace NewKursach
             }
 
             return null;
+        }
+
+        public bool isEmpty() {
+            return processes.Count == 0;
         }
     }
 }

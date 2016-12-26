@@ -49,7 +49,7 @@ namespace NewKursach
             cpuQueueListBox.Items.Clear();
             foreach (Process process in planner.cpuQueue())
             {
-                cpuQueueListBox.Items.Add(process.name);
+                cpuQueueListBox.Items.Add(process.name + ":" + process.burstTime);
             }
         }
         private void displayStatistic()

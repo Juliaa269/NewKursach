@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace NewKursach
 {
-    class BinaryHeap<T> 
+    class BinaryHeap : Queue
     {
-        private List<int> list;
+        private List<Process> values = new List<Process>();
         
         public int heapSize // размер кучи
         {
             get
             {
-                return this.list.Count();
+                return this.values.Count();
             }
         }
 
@@ -32,12 +32,12 @@ namespace NewKursach
                 rightChild = 2 * i + 2;
                 largestChild = i;
 
-                if (leftChild < heapSize && list[leftChild] > list[largestChild])
+                if (leftChild < heapSize && values[leftChild].burstTime > values[largestChild].burstTime)
                 {
                     largestChild = leftChild;
                 }
 
-                if (rightChild < heapSize && list[rightChild] > list[largestChild])
+                if (rightChild < heapSize && values[rightChild].burstTime > values[largestChild].burstTime)
                 {
                     largestChild = rightChild;
                 }
@@ -47,17 +47,16 @@ namespace NewKursach
                     break;
                 }
 
-                int temp = list[i];
-                list[i] = list[largestChild];
-                list[largestChild] = temp;
+                Process temp = values[i];
+                values[i] = values[largestChild];
+                values[largestChild] = temp;
                 i = largestChild;
             }
         }
 
-
-        public void buildHeap(List<int> sourceArray) // образование кучи - построение
+        public void buildHeap(List<Process> sourceArray) // образование кучи - построение
         {
-            list = sourceArray.ToList();
+            values = sourceArray.ToList();
             for (int i = heapSize / 2; i >= 0; i--)
             {
                 heapify(i);
@@ -65,39 +64,66 @@ namespace NewKursach
         }
 
 
-        public void add(int value) // метод добавления
+        public void push(Process value) // метод добавления
         {
-            list.Add(value);
-            int i = heapSize - 1;
-            int parent = (i - 1) / 2;
+            values.Add(value);
+            sort(values, values.Count);
+        }
 
-            while (i > 0 && list[parent] < list[i])
+        public void heapify(List<Process> values, int pos, int n)
+        {
+            Process temp;
+            while (2 * pos + 1 < n)
             {
-                int temp = list[i];
-                list[i] = list[parent];
-                list[parent] = temp;
-
-                i = parent;
-                parent = (i - 1) / 2;
+                int t = 2 * pos + 1;
+                if (2 * pos + 2 < n && values[2 * pos + 2].burstTime >= values[t].burstTime)
+                {
+                    t = 2 * pos + 2;
+                }
+                if (values[pos].burstTime < values[t].burstTime)
+                {
+                    temp = values[pos];
+                    values[pos] = values[t];
+                    values[t] = temp;
+                    pos = t;
+                }
+                else break;
+            }
+        }
+        public void makeHeap(List<Process> values, int n)
+        {
+            for (int i = n - 1; i >= 0; i--)
+            {
+                heapify(values, i, n);
+            }
+        }
+        public void sort(List<Process> values, int n)
+        {
+            Process temp;
+            makeHeap(values, n);
+            while (n > 0)
+            {
+                temp = values[0];
+                values[0] = values[n - 1];
+                values[n - 1] = temp;
+                n--;
+                heapify(values, 0, n);
             }
         }
 
-
         public void delete(int index) // метод удаления 
         {
-            list.RemoveAt(index);
+            values.RemoveAt(index);
         }
 
-        
-
-        public int First() // первый в очереди
+        public Process pop() // первый в очереди
         {
-            int first = list[0];
-            return first;
+            Process process = values[0];
+            delete(0);
+            return process;
         }
 
-
-        public bool empty() // очередь пуста
+        public bool isEmpty() // очередь пуста
         {
             if (heapSize == 0)
                 return true;
@@ -105,10 +131,14 @@ namespace NewKursach
                 return false;
         }
 
-
         public void clean() // очистка очереди
         {
-            list.Clear();
+            values.Clear();
+        }
+
+        public List<Process> list()
+        {
+            return values;
         }
     }
 }

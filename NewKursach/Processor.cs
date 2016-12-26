@@ -11,14 +11,25 @@ namespace NewKursach
     // tick
     class Processor
     {
-       
-        
-        Process currentProcess;
         private int currentTick = 0;
         public Process processInExecution = null;
+        private int remainingProcessTime = 0;
+        private List<Process> finished = new List<Process>();
 
         public void tick()
         {
+            if (processInExecution != null)
+            {
+                remainingProcessTime--;
+            }
+            if (remainingProcessTime == 0)
+            {
+                if (processInExecution != null)
+                {
+                    finished.Add(processInExecution);
+                    processInExecution = null;
+                }
+            }
             currentTick++;
         }
         public int getCurrentTick()
@@ -27,25 +38,25 @@ namespace NewKursach
         }
         public void clear()
         {
+            remainingProcessTime = 0;
             currentTick = 0;
         }
 
         // check if current Process is still executed
         // burstTime - execution time
-        public bool isFree()
-        {
-            if(currentProcess.burstTime <= 0)
-            //Processor.getCurrentTick() = n;
-            {
-                return currentProcess.burstTime == 0;;
-            }
-        }
-        // 
         public void execute(Process process)
         {
-            int remainingTime = process.burstTime;
-           
+            remainingProcessTime = process.burstTime;
+            processInExecution = process;
         }
-        
+        public bool isFree()
+        {
+            return remainingProcessTime <= 0;
+        }
+
+        public List<Process> finishedProcesses()
+        {
+            return finished;
+        }
     }
 }

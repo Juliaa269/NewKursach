@@ -11,5 +11,6 @@ namespace NewKursach
         void push(Process process); // declaration
         List<Process> list();
         Process pop();
+        bool isEmpty();
     }
 }

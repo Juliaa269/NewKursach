@@ -10,26 +10,25 @@ namespace NewKursach
     {
         // BackGround
         
-        private Queue processQueue = new SJFQueue();
+        private Queue processQueue = new BinaryHeap();
         private Processor processor = new Processor();
         public const float intensivity = 0.5f;
 
         private Queue stat = new SJFQueue();
 
-        private Queue staticus = new SJFQueue();
 
         private Random rnd = new Random();
 
         public Planner()
         {
-            Process p0 = new Process("P000", 15, 0);
-            Process p1 = new Process("P001", 9, 0);
-            Process p2 = new Process("P002", 21, 0);
-            Process p3 = new Process("P003", 3, 0);
+           /* Process p0 = new Process("P000", 5 * 15, 0);
+            Process p1 = new Process("P001", 5 * 9, 0);
+            Process p2 = new Process("P002", 5 * 21, 0);
+            Process p3 = new Process("P003", 5*3, 0);
             processQueue.push(p0);
             processQueue.push(p1);
             processQueue.push(p2);
-            processQueue.push(p3);
+            processQueue.push(p3);*/
         }
 
         public List<Process> cpuQueue() // очередь к ЦП
@@ -44,7 +43,7 @@ namespace NewKursach
 
         public List<Process> staticusss()
         {
-            return staticus.list();
+            return processor.finishedProcesses();
         }
 
         // [0]current process = null
@@ -57,13 +56,14 @@ namespace NewKursach
         // [4]isFree = true
         public void tick() // ?
         {
-            if (processor.isFree())
-            {
+            createProcess();
+            if (processor.isFree() && !processQueue.isEmpty())
+            { 
                 Process currentProcess = getLowestBurstTimeProcess();
                 processor.execute(currentProcess);
             }
             processor.tick();
-            // createProcess();
+           
         }
 
         private Process getLowestBurstTimeProcess() // получаем наименьшее интервал обслуживания
@@ -89,8 +89,8 @@ namespace NewKursach
             {
                 string name = "P" + processor.getCurrentTick();
                 int createdTime = processor.getCurrentTick();
-                int priority = rnd.Next(100);
-                Process regularProcess = new Process(name, priority, createdTime);
+                int burstTime = rnd.Next(20);
+                Process regularProcess = new Process(name, burstTime, createdTime);
                 processQueue.push(regularProcess);
             }
         }
