@@ -246,7 +246,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(179, 99);
             this.listBox1.TabIndex = 42;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+           
             // 
             // listBox2
             // 
@@ -323,11 +323,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(710, 153);
+            this.label13.Location = new System.Drawing.Point(659, 153);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 19);
+            this.label13.Size = new System.Drawing.Size(208, 19);
             this.label13.TabIndex = 51;
-            this.label13.Text = "Статистика";
+            this.label13.Text = "Завершенные процессы";
             // 
             // listBox6
             // 

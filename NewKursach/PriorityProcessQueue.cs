@@ -19,38 +19,37 @@ namespace NewKursach
     {
         List<Process> processes = new List<Process>();
 
-        public void push(Process process)
+        public void push(Process process) // добавление
         { // definition
             processes.Add(process);
             sort();
         }
 
         // 
-        private void sort()
+        private void sort() // сортировка
         {
             // process.burstTime();
         }
 
-        public List<Process> list()
+        public List<Process> list() // список процессов
         {
             return processes;
         }
 
        
-        public Process pop()
+        public Process pop() // первый в очереди - создался, удалился, создался новый
         {
             if (processes.Count() > 0)
             {
                 Process process = processes[0];
                 processes.Remove(process);
                 return process;
-
             }
-
             return null;
         }
 
-        public bool isEmpty() {
+        public bool isEmpty() // пусто
+        {
             return processes.Count == 0;
         }
     }

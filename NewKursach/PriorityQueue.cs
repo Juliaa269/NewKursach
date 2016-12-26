@@ -90,14 +90,14 @@ namespace NewKursach
                 else break;
             }
         }
-        public void makeHeap(List<Process> values, int n)
+        public void makeHeap(List<Process> values, int n) // строим кучу
         {
             for (int i = n - 1; i >= 0; i--)
             {
                 heapify(values, i, n);
             }
         }
-        public void sort(List<Process> values, int n)
+        public void sort(List<Process> values, int n) // сортировка
         {
             Process temp;
             makeHeap(values, n);

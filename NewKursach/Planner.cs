@@ -36,12 +36,12 @@ namespace NewKursach
             return processQueue.list();
         }
 
-        public Process current_CPU()
+        public Process current_CPU() // текущий ЦП
         {
             return processor.processInExecution;
         }
 
-        public List<Process> staticusss()
+        public List<Process> staticusss() // статистика
         {
             return processor.finishedProcesses();
         }
@@ -54,7 +54,7 @@ namespace NewKursach
         // [2]isFree = false
         // [3]isFree = false
         // [4]isFree = true
-        public void tick() // ?
+        public void tick() // тик
         {
             createProcess();
             if (processor.isFree() && !processQueue.isEmpty())
@@ -95,21 +95,10 @@ namespace NewKursach
             }
         }
 
-        public List<Process> currentCPU()
+        public List<Process> currentCPU() // текущий ЦП
         {
             return stat.list();
         }
         
-        //    private void generateProcesses() // создание процесса (если он меньше интенсивности)
-        //    {
-        //       double generate = rnd.NextDouble();
-        //
-        //           string name = "P" + processor.getCurrentTick();
-        //                int createdTime = processor.getCurrentTick();
-        //          int priority = rnd.Next(100);
-        //         Process regularProcess = new Process(name, priority, createdTime);
-        //         processQueue.push(regularProcess);
-        //    
-        //}
     }
 }

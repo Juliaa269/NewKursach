@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,33 +45,33 @@ namespace NewKursach
             displayStatistic();
         }
 
-        private void displayCPUQueue()
+        private void displayCPUQueue() //отображает очередь к ЦП
         {
             cpuQueueListBox.Items.Clear();
             foreach (Process process in planner.cpuQueue())
             {
-                cpuQueueListBox.Items.Add(process.name + ":" + process.burstTime);
+                cpuQueueListBox.Items.Add(process.name + " Burst Time:" + process.burstTime);
             }
         }
-        private void displayStatistic()
+        private void displayStatistic() // отображает статистику
         {
             listBox5.Items.Clear();
             foreach (Process process in planner.staticusss())
             {
-                listBox5.Items.Add(process.name);
+                listBox5.Items.Add(process.name + " Burst Time:" + process.burstTime);
             }
         }
 
-        private void displayCurrentCPU()
+        private void displayCurrentCPU() // отображает текущий ЦП
         {
             listBox1.Items.Clear();
             if (planner.current_CPU() != null)
             {
-                listBox1.Items.Add(planner.current_CPU().name);
+                listBox1.Items.Add(planner.current_CPU().name + " Burst Time:" + planner.current_CPU().burstTime);
             }
         }
 
-        private void displayCurrentTick()
+        private void displayCurrentTick() // отображает текущий тик
         {
             this.label6.Text = "" + planner.getCurrentTick();
 
@@ -118,12 +119,12 @@ namespace NewKursach
             hardDriveDiskQueueListBox.Items.Clear();
             soundCardListBox.Items.Clear();
 
-            groupBoxCPU.Clear();
-            groupBoxVC.Clear();
-            groupBoxHDD.Clear();
-            groupBoxSC.Clear();
-            groupBoxST.Clear();
-            groupBoxMm.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            listBox4.Items.Clear();
+            listBox5.Items.Clear();
+            listBox6.Items.Clear();
 
             planner.clear();
             displayCurrentTick();
@@ -137,9 +138,6 @@ namespace NewKursach
             Application.Exit();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
