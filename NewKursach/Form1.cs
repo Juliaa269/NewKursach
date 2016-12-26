@@ -9,22 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// TODO Вывести статистику выполнения процессов
-// TODO Вывести текущий исполняемый процесс
 namespace NewKursach
 {
     public partial class Form1 : Form
     {
         public Form1()
-        {
-            InitializeComponent();
-            this.planner = new Planner();
+        { 
+            InitializeComponent(); // инициализация компонентов
+            this.planner = new Planner(); // доступ к классу Планировщик
             this.label8.Text = "" + Planner.intensivity; // задаем интенсивность
-            //this.listBox1.Text = planner.statistic;
         }
 
         // UI
-        private Random rnd = new Random();
+        private Random rnd = new Random(); // ?
 
         private List<int> groupBoxCPU = new List<int>(); // инфо о ЦП
         private List<int> groupBoxVC = new List<int>(); // инфо о Видео Карте
@@ -33,9 +30,9 @@ namespace NewKursach
         private List<int> groupBoxST = new List<int>(); // Статистика
         private List<int> groupBoxMm = new List<int>(); // инфо о памяти
 
-        private Planner planner;
+        private Planner planner; // поле Планировщика с названием планировщик
 
-        private void timer1_Tick(object sender, EventArgs e) // таймер------ изменить
+        private void timer1_Tick(object sender, EventArgs e) // таймер тик-так
         {
             planner.tick();
             displayDevices();
@@ -46,7 +43,8 @@ namespace NewKursach
             displayStatistic();
         }
         
-        private void displayStatistic() {
+        private void displayStatistic() // отображает статистику
+        {
             Statistic stat = planner.summary();
 
             listBox2.Items.Clear();
@@ -90,10 +88,11 @@ namespace NewKursach
 
         }
 
-        private void displayDevices()
+        private void displayDevices() // отображает очереди к ресурсам и текущие процессы на ресурсах
         {
             videoCardQueueListBox.Items.Clear();
-            foreach (Process process in planner.videoCardWaitingQueue()) {
+            foreach (Process process in planner.videoCardWaitingQueue())
+            {
                 videoCardQueueListBox.Items.Add(process.name);
             }
             hardDriveDiskQueueListBox.Items.Clear();
