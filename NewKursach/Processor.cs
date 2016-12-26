@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace NewKursach
 {
+    // Current Process
+    // Processor.BurstTime
+    // tick
     class Processor
     {
+       
+        
+        Process currentProcess;
         private int currentTick = 0;
+        public Process processInExecution = null;
 
         public void tick()
         {
@@ -23,14 +30,21 @@ namespace NewKursach
             currentTick = 0;
         }
 
+        // check if current Process is still executed
+        // burstTime - execution time
         public bool isFree()
         {
-
-            return true;
+            if(currentProcess.burstTime <= 0)
+            //Processor.getCurrentTick() = n;
+            {
+                return currentProcess.burstTime == 0;;
+            }
         }
-
+        // 
         public void execute(Process process)
         {
+            int remainingTime = process.burstTime;
+           
         }
         
     }

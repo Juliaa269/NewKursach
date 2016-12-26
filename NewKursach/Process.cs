@@ -10,7 +10,7 @@ namespace NewKursach
     {
         public string name; // имя
         
-        public int burstTime; // приоритет
+        public int burstTime; //
         private int createdTime; // время создания
         private int timeProcessed; // время работы
         private int timeWaited; // время ожидания 
@@ -24,10 +24,7 @@ namespace NewKursach
             this.timeWaited = 0;
         }
 
-        public override string ToString()
-        {
-            return name + " resourceTime: ";
-        }
+       
     }
     
 }

@@ -16,14 +16,16 @@ namespace NewKursach
 
         private Queue stat = new SJFQueue();
 
+        private Queue staticus = new SJFQueue();
+
         private Random rnd = new Random();
 
         public Planner()
         {
-            Process p0 = new Process("P000", 5, 0);
-            Process p1 = new Process("P001", 3, 0);
-            Process p2 = new Process("P002", 7, 0);
-            Process p3 = new Process("P003", 1, 0);
+            Process p0 = new Process("P000", 15, 0);
+            Process p1 = new Process("P001", 9, 0);
+            Process p2 = new Process("P002", 21, 0);
+            Process p3 = new Process("P003", 3, 0);
             processQueue.push(p0);
             processQueue.push(p1);
             processQueue.push(p2);
@@ -35,11 +37,30 @@ namespace NewKursach
             return processQueue.list();
         }
 
+        public Process current_CPU()
+        {
+            return processor.processInExecution;
+        }
+
+        public List<Process> staticusss()
+        {
+            return staticus.list();
+        }
+
+        // [0]current process = null
+        // [0]isFree = true
+        // [0]current process = Process("P003", 1, 0);
+        // [1]isFree = true
+        // [1]currentProcess = Process("P001", 3, 0)
+        // [2]isFree = false
+        // [3]isFree = false
+        // [4]isFree = true
         public void tick() // ?
         {
             if (processor.isFree())
             {
-                processor.execute(getLowestBurstTimeProcess());
+                Process currentProcess = getLowestBurstTimeProcess();
+                processor.execute(currentProcess);
             }
             processor.tick();
             // createProcess();
@@ -74,9 +95,21 @@ namespace NewKursach
             }
         }
 
-        public Process statistic()
+        public List<Process> currentCPU()
         {
-            return stat.pop();
+            return stat.list();
         }
+        
+        //    private void generateProcesses() // создание процесса (если он меньше интенсивности)
+        //    {
+        //       double generate = rnd.NextDouble();
+        //
+        //           string name = "P" + processor.getCurrentTick();
+        //                int createdTime = processor.getCurrentTick();
+        //          int priority = rnd.Next(100);
+        //         Process regularProcess = new Process(name, priority, createdTime);
+        //         processQueue.push(regularProcess);
+        //    
+        //}
     }
 }

@@ -19,6 +19,7 @@ namespace NewKursach
             InitializeComponent();
             this.planner = new Planner();
             this.label8.Text = "" + Planner.intensivity;
+            //this.listBox1.Text = planner.statistic;
         }
 
         // UI
@@ -39,6 +40,8 @@ namespace NewKursach
             legacy();
             displayCurrentTick();
             displayCPUQueue();
+            displayCurrentCPU();
+            displayStatistic();
         }
 
         private void displayCPUQueue()
@@ -48,9 +51,25 @@ namespace NewKursach
             {
                 cpuQueueListBox.Items.Add(process.name);
             }
-
         }
-      
+        private void displayStatistic()
+        {
+            listBox5.Items.Clear();
+            foreach (Process process in planner.staticusss())
+            {
+                listBox5.Items.Add(process.name);
+            }
+        }
+
+        private void displayCurrentCPU()
+        {
+            listBox1.Items.Clear();
+            if (planner.current_CPU() != null)
+            {
+                listBox1.Items.Add(planner.current_CPU().name);
+            }
+        }
+
         private void displayCurrentTick()
         {
             this.label6.Text = "" + planner.getCurrentTick();
@@ -118,6 +137,9 @@ namespace NewKursach
             Application.Exit();
         }
 
-        
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,12 +40,6 @@
             this.STARTBTN = new System.Windows.Forms.Button();
             this.STOPBTN = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CLEARBTN = new System.Windows.Forms.Button();
             this.EXITBTN = new System.Windows.Forms.Button();
             this.current_tick = new System.Windows.Forms.Label();
@@ -54,6 +48,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.listBox5 = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.listBox6 = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -160,61 +166,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(351, 297);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 121);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Видео Карта";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(351, 153);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 121);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Центральный процессор";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(355, 436);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 128);
-            this.groupBox3.TabIndex = 30;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Жесткий диск";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(355, 580);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 126);
-            this.groupBox4.TabIndex = 31;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Звуковая Карта";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Location = new System.Drawing.Point(669, 153);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(286, 297);
-            this.groupBox5.TabIndex = 32;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Статистика";
-            
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Location = new System.Drawing.Point(669, 499);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 111);
-            this.groupBox6.TabIndex = 33;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Память";
-            // 
             // CLEARBTN
             // 
             this.CLEARBTN.Location = new System.Drawing.Point(701, 662);
@@ -287,11 +238,132 @@
             this.label7.TabIndex = 41;
             this.label7.Text = "Способ организации очереди - Бинарная пирамида";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 19;
+            this.listBox1.Location = new System.Drawing.Point(335, 177);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(179, 99);
+            this.listBox1.TabIndex = 42;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 19;
+            this.listBox2.Location = new System.Drawing.Point(335, 321);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(179, 99);
+            this.listBox2.TabIndex = 43;
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 19;
+            this.listBox3.Location = new System.Drawing.Point(335, 465);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(179, 99);
+            this.listBox3.TabIndex = 44;
+            // 
+            // listBox4
+            // 
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 19;
+            this.listBox4.Location = new System.Drawing.Point(335, 607);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(179, 99);
+            this.listBox4.TabIndex = 45;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(396, 153);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 19);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "ЦП";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(370, 297);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(110, 19);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "Видео Карта";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(370, 436);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(119, 19);
+            this.label11.TabIndex = 48;
+            this.label11.Text = "Жесткий Диск";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(359, 580);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(134, 19);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Звуковая Карта";
+            // 
+            // listBox5
+            // 
+            this.listBox5.FormattingEnabled = true;
+            this.listBox5.ItemHeight = 19;
+            this.listBox5.Location = new System.Drawing.Point(629, 175);
+            this.listBox5.Name = "listBox5";
+            this.listBox5.Size = new System.Drawing.Size(272, 308);
+            this.listBox5.TabIndex = 50;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(710, 153);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 19);
+            this.label13.TabIndex = 51;
+            this.label13.Text = "Статистика";
+            // 
+            // listBox6
+            // 
+            this.listBox6.FormattingEnabled = true;
+            this.listBox6.ItemHeight = 19;
+            this.listBox6.Location = new System.Drawing.Point(629, 537);
+            this.listBox6.Name = "listBox6";
+            this.listBox6.Size = new System.Drawing.Size(204, 99);
+            this.listBox6.TabIndex = 52;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(682, 515);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 19);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "Память";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 731);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.listBox6);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.listBox5);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.listBox4);
+            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label8);
@@ -300,12 +372,6 @@
             this.Controls.Add(this.current_tick);
             this.Controls.Add(this.EXITBTN);
             this.Controls.Add(this.CLEARBTN);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.STOPBTN);
             this.Controls.Add(this.STARTBTN);
             this.Controls.Add(this.soundCardListBox);
@@ -338,12 +404,6 @@
         private System.Windows.Forms.Button STARTBTN;
         private System.Windows.Forms.Button STOPBTN;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button CLEARBTN;
         private System.Windows.Forms.Button EXITBTN;
         private System.Windows.Forms.Label current_tick;
@@ -352,6 +412,18 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ListBox listBox5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ListBox listBox6;
+        private System.Windows.Forms.Label label14;
     }
 }
 
