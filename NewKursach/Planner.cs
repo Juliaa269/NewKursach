@@ -11,7 +11,12 @@ namespace NewKursach
         // BackGround
 
         private Queue processQueue = new BinaryHeap();
-        private Processor processor = new Processor();
+
+        private Device processor = new Device();
+        private Device videoCard = new Device();
+        private Device soundCard = new Device();
+        private Device hdd = new Device();
+
         public const float intensivity = 0.5f;
 
         private LinkedList<Process> videoCardResourceQueue = new LinkedList<Process>();
@@ -25,9 +30,6 @@ namespace NewKursach
 
         public Planner()
         {
-            videoCardResourceQueue.AddFirst(generateProcess());
-            soundCardResourceQueue.AddFirst(generateProcess());
-            hddResourceQueue.AddFirst(generateProcess());
         }
 
         public List<Process> cpuQueue() // очередь к ЦП
@@ -57,6 +59,10 @@ namespace NewKursach
         {
             updateProcessQueue();
 
+            update(videoCard, videoCardResourceQueue);
+            update(soundCard, soundCardResourceQueue);
+            update(hdd, hddResourceQueue);
+
             if (processor.isFree() && !processQueue.isEmpty())
             {
                 manageFinishedProcess();
@@ -66,9 +72,34 @@ namespace NewKursach
             }
 
             processor.tick();
+            videoCard.tick();
+            soundCard.tick();
+            hdd.tick();
         }
 
-        private void manageFinishedProcess() {
+        private void update(Device device, LinkedList<Process>  queue) {
+            if (device.isFree())
+            {
+                manageFinishedResourceProcess(device);
+
+                if (queue.Count() > 0)
+                {
+                    Process waitingProcess = queue.Last();
+                    device.execute(waitingProcess);
+                    queue.RemoveLast();
+                }
+            }
+        }
+
+        private void manageFinishedResourceProcess(Device device)
+        {
+            Process finishedProcess = device.lastFinished();
+            if (finishedProcess != null)
+                finishedProcesses.AddFirst(finishedProcess);
+        }
+
+        private void manageFinishedProcess()
+        {
             Process finishedProcess = processor.lastFinished();
             if (finishedProcess != null)
             {
@@ -81,7 +112,8 @@ namespace NewKursach
                 }
             }
         }
-        private void updateProcessQueue() {
+        private void updateProcessQueue()
+        {
             double generate = rnd.NextDouble();
 
             if (generate <= intensivity)
@@ -110,13 +142,13 @@ namespace NewKursach
         {
             string name = "P" + processor.getCurrentTick();
             int createdTime = processor.getCurrentTick();
-            int burstTime = rnd.Next(20);
+            int burstTime = rnd.Next(400) + 10;
             return new Process(name, burstTime, createdTime, randResource());
         }
 
         private Resource randResource()
         {
-            int rand = rnd.Next(10);
+            int rand = rnd.Next(3);
             Resource generatedResource;
 
             switch (rand)
@@ -136,7 +168,8 @@ namespace NewKursach
             return stat.list();
         }
 
-        public LinkedList<Process> videoCardWaitingQueue() {
+        public LinkedList<Process> videoCardWaitingQueue()
+        {
             return videoCardResourceQueue;
         }
 
@@ -150,5 +183,19 @@ namespace NewKursach
             return soundCardResourceQueue;
         }
 
+        public Process currentVideoCardProcess()
+        {
+            return videoCard.processInExecution;
+        }
+
+        public Process currentSoundCardProcess()
+        {
+            return soundCard.processInExecution;
+        }
+
+        public Process currentHddProcess()
+        {
+            return hdd.processInExecution;
+        }
     }
 }

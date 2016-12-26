@@ -9,7 +9,7 @@ namespace NewKursach
     // Current Process
     // Processor.BurstTime
     // tick
-    class Processor
+    class Device
     {
         private int currentTick = 0;
         public Process processInExecution = null;
@@ -27,7 +27,6 @@ namespace NewKursach
                 if (processInExecution != null)
                 {
                     finished = processInExecution;
-                    //finished.Add(processInExecution);
                     processInExecution = null;
                 }
             }
@@ -52,7 +51,7 @@ namespace NewKursach
         }
         public bool isFree()
         {
-            return remainingProcessTime <= 0;
+            return processInExecution == null;
         }
 
         public Process lastFinished() {

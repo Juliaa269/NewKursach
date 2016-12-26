@@ -49,9 +49,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.currentVideoCardProcess = new System.Windows.Forms.ListBox();
+            this.currentHddProcess = new System.Windows.Forms.ListBox();
+            this.currentSoundCardProcess = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -250,30 +250,30 @@
             // 
             // listBox2
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 19;
-            this.listBox2.Location = new System.Drawing.Point(335, 321);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(179, 99);
-            this.listBox2.TabIndex = 43;
+            this.currentVideoCardProcess.FormattingEnabled = true;
+            this.currentVideoCardProcess.ItemHeight = 19;
+            this.currentVideoCardProcess.Location = new System.Drawing.Point(335, 321);
+            this.currentVideoCardProcess.Name = "listBox2";
+            this.currentVideoCardProcess.Size = new System.Drawing.Size(179, 99);
+            this.currentVideoCardProcess.TabIndex = 43;
             // 
             // listBox3
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 19;
-            this.listBox3.Location = new System.Drawing.Point(335, 465);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(179, 99);
-            this.listBox3.TabIndex = 44;
+            this.currentHddProcess.FormattingEnabled = true;
+            this.currentHddProcess.ItemHeight = 19;
+            this.currentHddProcess.Location = new System.Drawing.Point(335, 465);
+            this.currentHddProcess.Name = "listBox3";
+            this.currentHddProcess.Size = new System.Drawing.Size(179, 99);
+            this.currentHddProcess.TabIndex = 44;
             // 
             // listBox4
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 19;
-            this.listBox4.Location = new System.Drawing.Point(335, 607);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(179, 99);
-            this.listBox4.TabIndex = 45;
+            this.currentSoundCardProcess.FormattingEnabled = true;
+            this.currentSoundCardProcess.ItemHeight = 19;
+            this.currentSoundCardProcess.Location = new System.Drawing.Point(335, 607);
+            this.currentSoundCardProcess.Name = "listBox4";
+            this.currentSoundCardProcess.Size = new System.Drawing.Size(179, 99);
+            this.currentSoundCardProcess.TabIndex = 45;
             // 
             // label9
             // 
@@ -360,9 +360,9 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.listBox4);
-            this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.currentSoundCardProcess);
+            this.Controls.Add(this.currentHddProcess);
+            this.Controls.Add(this.currentVideoCardProcess);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -413,9 +413,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.ListBox currentVideoCardProcess;
+        private System.Windows.Forms.ListBox currentHddProcess;
+        private System.Windows.Forms.ListBox currentSoundCardProcess;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;

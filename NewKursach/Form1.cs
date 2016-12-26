@@ -79,7 +79,6 @@ namespace NewKursach
 
         private void legacy()
         {
-            int numb = rnd.Next(100);
             videoCardQueueListBox.Items.Clear();
             foreach (Process process in planner.videoCardWaitingQueue()) {
                 videoCardQueueListBox.Items.Add(process.name);
@@ -94,9 +93,26 @@ namespace NewKursach
             {
                 soundCardListBox.Items.Add(process.name);
             }
-            // videoCardQueueListBox.Items.Add(planner.getVideoCardQueue());
-            //hardDriveDiskQueueListBox.Items.Add(numb);
-            //soundCardListBox.Items.Add(numb);
+            currentVideoCardProcess.Items.Clear();
+            Process videoProcess = planner.currentVideoCardProcess();
+            if (videoProcess != null) {
+                currentVideoCardProcess.Items.Add(videoProcess.name + "");
+            }
+
+            currentSoundCardProcess.Items.Clear();
+            Process soudProcess = planner.currentSoundCardProcess();
+            if (soudProcess != null)
+            {
+                currentSoundCardProcess.Items.Add(soudProcess.name + "");
+            }
+
+            currentHddProcess.Items.Clear();
+            Process hddProcess = planner.currentHddProcess();
+            if (hddProcess != null)
+            {
+                currentHddProcess.Items.Add(hddProcess.name + "");
+            }
+       
         }
 
         private void STARTBTN_Click(object sender, EventArgs e) // кнопка СТАРТ
@@ -133,9 +149,9 @@ namespace NewKursach
             soundCardListBox.Items.Clear();
 
             listBox1.Items.Clear();
-            listBox2.Items.Clear();
-            listBox3.Items.Clear();
-            listBox4.Items.Clear();
+            currentVideoCardProcess.Items.Clear();
+            currentHddProcess.Items.Clear();
+            currentSoundCardProcess.Items.Clear();
             listBox5.Items.Clear();
             listBox6.Items.Clear();
 
