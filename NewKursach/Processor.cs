@@ -14,7 +14,7 @@ namespace NewKursach
         private int currentTick = 0;
         public Process processInExecution = null;
         private int remainingProcessTime = 0;
-        private List<Process> finished = new List<Process>();
+        private Process finished;
 
         public void tick()
         {
@@ -26,7 +26,8 @@ namespace NewKursach
             {
                 if (processInExecution != null)
                 {
-                    finished.Add(processInExecution);
+                    finished = processInExecution;
+                    //finished.Add(processInExecution);
                     processInExecution = null;
                 }
             }
@@ -54,9 +55,10 @@ namespace NewKursach
             return remainingProcessTime <= 0;
         }
 
-        public List<Process> finishedProcesses()
-        {
-            return finished;
+        public Process lastFinished() {
+            Process process = finished;
+            finished = null;
+            return process;
         }
     }
 }

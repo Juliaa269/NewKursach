@@ -17,6 +17,7 @@ namespace NewKursach
         private LinkedList<Process> videoCardResourceQueue = new LinkedList<Process>();
         private LinkedList<Process> soundCardResourceQueue = new LinkedList<Process>();
         private LinkedList<Process> hddResourceQueue = new LinkedList<Process>();
+        private LinkedList<Process> finishedProcesses = new LinkedList<Process>();
 
         private Queue stat = new SJFQueue();
 
@@ -39,9 +40,9 @@ namespace NewKursach
             return processor.processInExecution;
         }
 
-        public List<Process> staticusss() // статистика
+        public LinkedList<Process> staticusss() // статистика
         {
-            return processor.finishedProcesses();
+            return finishedProcesses;
         }
 
         // [0]current process = null
@@ -58,12 +59,28 @@ namespace NewKursach
 
             if (processor.isFree() && !processQueue.isEmpty())
             {
+                manageFinishedProcess();
+
                 Process currentProcess = getLowestBurstTimeProcess();
                 processor.execute(currentProcess);
             }
+
             processor.tick();
         }
 
+        private void manageFinishedProcess() {
+            Process finishedProcess = processor.lastFinished();
+            if (finishedProcess != null)
+            {
+                switch (finishedProcess.resource)
+                {
+                    case Resource.VIDEO_CARD: videoCardResourceQueue.AddFirst(finishedProcess); break;
+                    case Resource.SOUND_CARD: soundCardResourceQueue.AddFirst(finishedProcess); break;
+                    case Resource.HDD: hddResourceQueue.AddFirst(finishedProcess); break;
+                    case Resource.NONE: finishedProcesses.AddFirst(finishedProcess); break;
+                }
+            }
+        }
         private void updateProcessQueue() {
             double generate = rnd.NextDouble();
 
