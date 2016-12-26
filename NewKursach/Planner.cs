@@ -24,9 +24,9 @@ namespace NewKursach
         private LinkedList<Process> hddResourceQueue = new LinkedList<Process>();
         private LinkedList<Process> finishedProcesses = new LinkedList<Process>();
 
-        private Queue stat = new SJFQueue();
-
         private Random rnd = new Random();
+
+        private Statistic statistic = new Statistic();
 
         public Planner()
         {
@@ -69,6 +69,11 @@ namespace NewKursach
 
                 Process currentProcess = getLowestBurstTimeProcess();
                 processor.execute(currentProcess);
+                currentProcess.executionStarted(processor.getCurrentTick());
+            }
+
+            if (processor.isFree()) {
+                statistic.procIdleTick();
             }
 
             processor.tick();
@@ -77,7 +82,8 @@ namespace NewKursach
             hdd.tick();
         }
 
-        private void update(Device device, LinkedList<Process>  queue) {
+        private void update(Device device, LinkedList<Process> queue)
+        {
             if (device.isFree())
             {
                 manageFinishedResourceProcess(device);
@@ -95,7 +101,7 @@ namespace NewKursach
         {
             Process finishedProcess = device.lastFinished();
             if (finishedProcess != null)
-                finishedProcesses.AddFirst(finishedProcess);
+                onProcessFinished(finishedProcess);
         }
 
         private void manageFinishedProcess()
@@ -108,10 +114,17 @@ namespace NewKursach
                     case Resource.VIDEO_CARD: videoCardResourceQueue.AddFirst(finishedProcess); break;
                     case Resource.SOUND_CARD: soundCardResourceQueue.AddFirst(finishedProcess); break;
                     case Resource.HDD: hddResourceQueue.AddFirst(finishedProcess); break;
-                    case Resource.NONE: finishedProcesses.AddFirst(finishedProcess); break;
+                    case Resource.NONE: onProcessFinished(finishedProcess); break;
                 }
             }
         }
+
+        private void onProcessFinished(Process finishedProcess) {
+            statistic.processFinished();
+            statistic.addTimeWaited(finishedProcess.timeWaited());
+            finishedProcesses.AddFirst(finishedProcess);
+        }
+
         private void updateProcessQueue()
         {
             double generate = rnd.NextDouble();
@@ -120,6 +133,8 @@ namespace NewKursach
             {
                 Process generatredProcess = generateProcess();
                 processQueue.push(generatredProcess);
+                statistic.proceesAdded();
+                statistic.maxQueueLength(processQueue.list().Count());
             }
         }
 
@@ -135,20 +150,31 @@ namespace NewKursach
 
         public void clear() // очищаем
         {
+            statistic = new Statistic();
+
             processor.clear();
+            videoCard.clear();
+            hdd.clear();
+            soundCard.clear();
+
+            videoCardResourceQueue = new LinkedList<Process>();
+            soundCardResourceQueue = new LinkedList<Process>();
+            hddResourceQueue = new LinkedList<Process>();
+            finishedProcesses = new LinkedList<Process>();
+
         }
 
         private Process generateProcess() // создание процесса (если он меньше интенсивности)
         {
             string name = "P" + processor.getCurrentTick();
             int createdTime = processor.getCurrentTick();
-            int burstTime = rnd.Next(400) + 10;
+            int burstTime = rnd.Next(100) + 10;
             return new Process(name, burstTime, createdTime, randResource());
         }
 
         private Resource randResource()
         {
-            int rand = rnd.Next(3);
+            int rand = rnd.Next(5);
             Resource generatedResource;
 
             switch (rand)
@@ -163,10 +189,6 @@ namespace NewKursach
             return generatedResource;
         }
 
-        public List<Process> currentCPU() // текущий ЦП
-        {
-            return stat.list();
-        }
 
         public LinkedList<Process> videoCardWaitingQueue()
         {
@@ -196,6 +218,11 @@ namespace NewKursach
         public Process currentHddProcess()
         {
             return hdd.processInExecution;
+        }
+
+        public Statistic summary()
+        {
+            return statistic;
         }
     }
 }

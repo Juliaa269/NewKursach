@@ -38,11 +38,24 @@ namespace NewKursach
         private void timer1_Tick(object sender, EventArgs e) // таймер------ изменить
         {
             planner.tick();
-            legacy();
+            displayDevices();
             displayCurrentTick();
             displayCPUQueue();
             displayCurrentCPU();
+            displaFinishedProcesses();
             displayStatistic();
+        }
+        
+        private void displayStatistic() {
+            Statistic stat = planner.summary();
+
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Total processes: " + stat.totalCreated());
+            listBox2.Items.Add("Total finished: " + stat.totalFinished());
+            listBox2.Items.Add("Avg wait time: " + stat.avgWaitTime());
+            listBox2.Items.Add("Max queue length: " + stat.maxQueueLength());
+            listBox2.Items.Add("Proc idle time: " + stat.procIdle());
+
         }
 
         private void displayCPUQueue() //отображает очередь к ЦП
@@ -53,7 +66,7 @@ namespace NewKursach
                 cpuQueueListBox.Items.Add(process.name + " Burst Time:" + process.burstTime);
             }
         }
-        private void displayStatistic() // отображает статистику
+        private void displaFinishedProcesses() // отображает выполненные процессы
         {
             listBox5.Items.Clear();
             foreach (Process process in planner.staticusss())
@@ -77,7 +90,7 @@ namespace NewKursach
 
         }
 
-        private void legacy()
+        private void displayDevices()
         {
             videoCardQueueListBox.Items.Clear();
             foreach (Process process in planner.videoCardWaitingQueue()) {

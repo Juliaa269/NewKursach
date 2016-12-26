@@ -60,6 +60,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.listBox6 = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -144,7 +146,7 @@
             // 
             // STARTBTN
             // 
-            this.STARTBTN.Location = new System.Drawing.Point(816, 662);
+            this.STARTBTN.Location = new System.Drawing.Point(1019, 649);
             this.STARTBTN.Name = "STARTBTN";
             this.STARTBTN.Size = new System.Drawing.Size(115, 57);
             this.STARTBTN.TabIndex = 21;
@@ -154,7 +156,7 @@
             // 
             // STOPBTN
             // 
-            this.STOPBTN.Location = new System.Drawing.Point(937, 662);
+            this.STOPBTN.Location = new System.Drawing.Point(1140, 649);
             this.STOPBTN.Name = "STOPBTN";
             this.STOPBTN.Size = new System.Drawing.Size(98, 57);
             this.STOPBTN.TabIndex = 22;
@@ -168,7 +170,7 @@
             // 
             // CLEARBTN
             // 
-            this.CLEARBTN.Location = new System.Drawing.Point(701, 662);
+            this.CLEARBTN.Location = new System.Drawing.Point(904, 649);
             this.CLEARBTN.Name = "CLEARBTN";
             this.CLEARBTN.Size = new System.Drawing.Size(109, 57);
             this.CLEARBTN.TabIndex = 34;
@@ -178,7 +180,7 @@
             // 
             // EXITBTN
             // 
-            this.EXITBTN.Location = new System.Drawing.Point(880, 2);
+            this.EXITBTN.Location = new System.Drawing.Point(813, 2);
             this.EXITBTN.Name = "EXITBTN";
             this.EXITBTN.Size = new System.Drawing.Size(118, 55);
             this.EXITBTN.TabIndex = 35;
@@ -246,32 +248,31 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(179, 99);
             this.listBox1.TabIndex = 42;
-           
             // 
-            // listBox2
+            // currentVideoCardProcess
             // 
             this.currentVideoCardProcess.FormattingEnabled = true;
             this.currentVideoCardProcess.ItemHeight = 19;
             this.currentVideoCardProcess.Location = new System.Drawing.Point(335, 321);
-            this.currentVideoCardProcess.Name = "listBox2";
+            this.currentVideoCardProcess.Name = "currentVideoCardProcess";
             this.currentVideoCardProcess.Size = new System.Drawing.Size(179, 99);
             this.currentVideoCardProcess.TabIndex = 43;
             // 
-            // listBox3
+            // currentHddProcess
             // 
             this.currentHddProcess.FormattingEnabled = true;
             this.currentHddProcess.ItemHeight = 19;
             this.currentHddProcess.Location = new System.Drawing.Point(335, 465);
-            this.currentHddProcess.Name = "listBox3";
+            this.currentHddProcess.Name = "currentHddProcess";
             this.currentHddProcess.Size = new System.Drawing.Size(179, 99);
             this.currentHddProcess.TabIndex = 44;
             // 
-            // listBox4
+            // currentSoundCardProcess
             // 
             this.currentSoundCardProcess.FormattingEnabled = true;
             this.currentSoundCardProcess.ItemHeight = 19;
             this.currentSoundCardProcess.Location = new System.Drawing.Point(335, 607);
-            this.currentSoundCardProcess.Name = "listBox4";
+            this.currentSoundCardProcess.Name = "currentSoundCardProcess";
             this.currentSoundCardProcess.Size = new System.Drawing.Size(179, 99);
             this.currentSoundCardProcess.TabIndex = 45;
             // 
@@ -335,7 +336,7 @@
             this.listBox6.ItemHeight = 19;
             this.listBox6.Location = new System.Drawing.Point(629, 537);
             this.listBox6.Name = "listBox6";
-            this.listBox6.Size = new System.Drawing.Size(204, 99);
+            this.listBox6.Size = new System.Drawing.Size(204, 137);
             this.listBox6.TabIndex = 52;
             // 
             // label14
@@ -347,11 +348,31 @@
             this.label14.TabIndex = 53;
             this.label14.Text = "Память";
             // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 19;
+            this.listBox2.Location = new System.Drawing.Point(968, 180);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(270, 289);
+            this.listBox2.TabIndex = 54;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1053, 158);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(100, 19);
+            this.label15.TabIndex = 55;
+            this.label15.Text = "Статистика";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 731);
+            this.ClientSize = new System.Drawing.Size(1254, 731);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.listBox6);
             this.Controls.Add(this.label13);
@@ -424,6 +445,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ListBox listBox6;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label15;
     }
 }
 

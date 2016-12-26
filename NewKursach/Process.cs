@@ -19,15 +19,13 @@ namespace NewKursach
         public Resource resource;
         public int burstTime; //
         private int createdTime; // время создания
-        private int timeProcessed; // время работы
-        private int timeWaited; // время ожидания 
+        private int timeStarted; // время работы
 
         public Process(string name, int burstTime, int createdTime, Resource resource) {
             this.name = name;
             this.burstTime = burstTime;
             this.createdTime = createdTime;
-            this.timeProcessed = 0;
-            this.timeWaited = 0;
+            this.timeStarted = 0;
             this.resource = resource;
         }
 
@@ -35,6 +33,13 @@ namespace NewKursach
         {
         }
 
+        public void executionStarted(int time) {
+            timeStarted = time;
+        }
+
+        public int timeWaited() {
+            return timeStarted - createdTime;
+        }
        
     }
     
